@@ -1,1 +1,13 @@
-﻿.idea
+.idea/
+.vs/
+
+bin/
+obj/
+
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+test_svg/

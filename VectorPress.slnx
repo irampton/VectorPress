@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/VectorPress.App/VectorPress.App.csproj" />
+    <Project Path="src/VectorPress.Core/VectorPress.Core.csproj" />
+  </Folder>
+</Solution>

@@ -242,6 +242,9 @@ vectorpress input.svg output.stl
 vectorpress input.svg output.stl --base 2mm
 vectorpress input.svg output.stl --height "#FF0000=3mm"
 ```
+## UI Appearance
+The UI should use a modern feeling interface with a light and dark mode. 
+Gradients and glows should be considered, and most everything should have a border radius.
 
 ## Other Instructions
 
