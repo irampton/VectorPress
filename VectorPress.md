@@ -24,7 +24,7 @@ _(The minimum functional pipeline that makes the app useful.)_
     *   Identify unique fill colors.
     *   Group shapes by fill color.
     *   Display color list with counts.
-- [ ] **Height Assignment**
+- [x] **Height Assignment**
     *   Allow assigning extrusion height per color group.
     *   Heights expressed in millimeters.
 - [ ] **Polygon to Mesh Conversion**
@@ -35,7 +35,7 @@ _(The minimum functional pipeline that makes the app useful.)_
         *   bottom surface
         *   side walls
     *   Ensure watertight manifold mesh.
-- [ ] **STL Export**
+- [x] **STL Export**
     *   Export generated mesh as binary `.stl`.
     *   Use millimeter units.
 
@@ -50,7 +50,7 @@ _(Necessary for real-world usability.)_
         *   Center panel: SVG preview
         *   Right panel: extrusion settings
         *   Bottom/right: 3D preview
-- [ ] **3D Preview**
+- [x] **3D Preview**
     *   Display generated mesh interactively.
     *   Camera controls:
         *   orbit

@@ -11,6 +11,12 @@ public sealed class FileDialogService(Window owner) : IFileDialogService
         MimeTypes = ["image/svg+xml"]
     };
 
+    private static readonly FilePickerFileType StlType = new("STL")
+    {
+        Patterns = ["*.stl"],
+        MimeTypes = ["model/stl", "application/sla"]
+    };
+
     public async Task<string?> PickSvgFileAsync()
     {
         var files = await owner.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
@@ -21,5 +27,18 @@ public sealed class FileDialogService(Window owner) : IFileDialogService
         });
 
         return files.Count == 0 ? null : files[0].TryGetLocalPath();
+    }
+
+    public async Task<string?> PickStlSavePathAsync(string suggestedFileName)
+    {
+        var file = await owner.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
+        {
+            Title = "Export STL",
+            SuggestedFileName = suggestedFileName,
+            DefaultExtension = "stl",
+            FileTypeChoices = [StlType]
+        });
+
+        return file?.TryGetLocalPath();
     }
 }

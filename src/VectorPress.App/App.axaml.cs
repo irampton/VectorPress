@@ -29,7 +29,9 @@ public partial class App : Application
             mainWindow.DataContext = new MainWindowViewModel(
                 new FileDialogService(mainWindow),
                 new SvgDocumentService(),
-                new SvgPreviewRenderer());
+                new SvgPreviewRenderer(),
+                new SvgExtrusionMeshService(),
+                new BinaryStlWriter());
             desktop.MainWindow = mainWindow;
         }
 

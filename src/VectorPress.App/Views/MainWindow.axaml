@@ -1,5 +1,6 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:VectorPress.App.Controls"
         xmlns:vm="using:VectorPress.App.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -47,7 +48,7 @@
             <ColumnDefinition Width="320" />
         </Grid.ColumnDefinitions>
 
-        <Grid RowDefinitions="Auto,*" Margin="24,24,12,24">
+        <Grid RowDefinitions="Auto,*,*" Margin="24,24,12,24">
             <Border Classes="preview-shell" Padding="20,18">
                 <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
                     <Button Classes="primary"
@@ -82,6 +83,30 @@
                         <TextBlock Foreground="#FF5E5A56"
                                    HorizontalAlignment="Center"
                                    Text="Load a file to render it here." />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="2"
+                    Classes="preview-shell"
+                    Margin="0,18,0,0">
+                <Grid>
+                    <controls:MeshViewport Mesh="{Binding PreviewMesh}"
+                                           IsVisible="{Binding HasMeshPreview}" />
+                    <StackPanel HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Spacing="6"
+                                IsVisible="{Binding HasNoMeshPreview}">
+                        <TextBlock FontSize="22"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"
+                                   Text="3D preview" />
+                        <TextBlock Foreground="#FF5E5A56"
+                                   HorizontalAlignment="Center"
+                                   Text="Set a positive height to generate an extrusion." />
+                        <TextBlock Foreground="#FF5E5A56"
+                                   HorizontalAlignment="Center"
+                                   Text="Drag to orbit, Shift+drag to pan, wheel to zoom." />
                     </StackPanel>
                 </Grid>
             </Border>
@@ -124,7 +149,7 @@
                                                        Text="{Binding Label}" />
                                             <TextBox Grid.Column="2"
                                                      Classes="height-box"
-                                                     Text="{Binding ExtrusionHeightMm}" />
+                                                     Text="{Binding ExtrusionHeightMm, UpdateSourceTrigger=PropertyChanged}" />
                                             <TextBlock Grid.Column="3"
                                                        VerticalAlignment="Center"
                                                        Foreground="#FF5E5A56"
@@ -150,7 +175,7 @@
                         Height="44"
                         Command="{Binding ExportCommand}"
                         IsEnabled="{Binding CanExport}"
-                        Content="Export" />
+                        Content="Export STL" />
             </Grid>
         </Border>
     </Grid>
